@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --text-scale: 1;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: calc(1rem * var(--text-scale));
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Accessibility: large text mode toggled via JS adding .large-text to <html> */
+html.large-text {
+  --text-scale: 1.25;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+/* Focus states for keyboard/elderly accessibility — clear, high-contrast rings */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid #d4a017;
+  outline-offset: 2px;
+}
+
+/* Minimum tap target size for accessibility */
+button, a.btn {
+  min-height: 44px;
+}
+
+::selection {
+  background-color: #d4a017;
+  color: #1e2266;
+}
+
+.text-gold-gradient {
+  background: linear-gradient(90deg, #d4a017, #f5b942, #d4a017);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Skip-to-content link for screen readers / keyboard nav */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: #d4a017;
+  color: #1e2266;
+  padding: 12px 20px;
+  font-weight: 700;
+  border-radius: 0 0 8px 0;
+}
+.skip-link:focus {
+  left: 0;
+}
